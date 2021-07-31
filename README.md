@@ -115,3 +115,23 @@ $ curl --header \
         --header "Content-Type: application/json" \
         http://localhost:3189/users
 ```
+
+
+### Change User status
+#### (POST /users/change_user_status)
+#### status: 'archive' or 'unarchive'
+
+```bash
+curl --request POST --header "Content-Type: application/json" --header "Authentication: Bearer JWT_TOKEN" http://localhost:3189/users/change_user_status --data  '{"user_id": "1", status: "unarchive"}'
+```
+
+### List Users with filter of status
+##### (GET /users?status=STATUS)
+#### status: 'archive' or 'unarchive'
+
+```bash
+$ curl --header \
+        "Authentication: Bearer JWT_TOKEN" \
+        --header "Content-Type: application/json" \
+        http://localhost:3189/users?status="unarchive"
+```
